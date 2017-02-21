@@ -27,6 +27,12 @@ This code is part of a submitted article.
 
 The censored catch, structured process error and crl transformed catch-at-age chunks are from:
 
+Cadigan, N. 2016a. A state-space stock assessment model for northern cod, including under-reported catches and variable natural mortality rates. Can. J. Fish. Aquat. Sci., 73: 296–308.
+http://www.nrcresearchpress.com/doi/pdfplus/10.1139/cjfas-2015-0047
+
+Cadigan, N. 2016b. Updates to a Northern Cod (Gadus morhua) State-Space Integrated Assessment Model. DFO Can. Sci. Advis. Sec. Res. Doc., 2016/022. Centre for Fisheries Ecosystem Research, St. John’s, NL.
+http://publications.gc.ca/collections/collection_2016/mpo-dfo/Fs70-5-2016-022-eng.pdf
+
 
 
 

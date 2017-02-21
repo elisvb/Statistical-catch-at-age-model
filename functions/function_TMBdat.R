@@ -1,3 +1,7 @@
+##### TMBdat #####
+## reads data from a tab-delimited text file and puts it in list format
+## names should be indicated with #
+
 TMBdat = function(dat){  
   dat.raw=readLines(dat)
   data=dat.raw[-1]

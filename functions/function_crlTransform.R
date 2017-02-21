@@ -1,4 +1,9 @@
-# continuous ratio log transform  (copywright (c) NOEL CADIGAN)
+##### crlTransform #####
+## continuous ratio log transform 
+##   Cadigan, N. 2016a. A state-space stock assessment model for northern cod, 
+##   including under-reported catches and variable natural mortality rates. 
+##   Can. J. Fish. Aquat. Sci., 73: 296–308.
+
 crlTransform=function(x){
   catch.num=t(x)
   na=ncol(catch.num) 

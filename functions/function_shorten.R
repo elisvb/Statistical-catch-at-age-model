@@ -1,4 +1,6 @@
-# shorten vectors/matrices/dataframes by a certain length (e.g. to make a retrospective plot)
+##### shorten #####
+## shorten vectors and matrices by a certain length (to make a retrospective plot)
+## assumes years are columns
 
 shorten=function(x,length=1){
   if(length(dim(x))==2){

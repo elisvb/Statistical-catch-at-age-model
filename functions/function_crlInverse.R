@@ -1,4 +1,6 @@
-# crl transformed data to original CAA format
+##### crlInversep #####
+## crl transformed data to original CAA format
+
 crlInverse=function(x){  
   na=nrow(x)
   mnew=exp(x)/(exp(x)+1)

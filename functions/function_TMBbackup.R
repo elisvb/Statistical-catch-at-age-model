@@ -1,5 +1,7 @@
-##### TMBbackup-----
-# read a cpp file, without running it (for the backup function)
+##### TMBbackup #####
+## copies a cpp file
+
+# read a cpp file, without running it 
 read_cpp_file <- function(path) {
   paste0(paste0(readLines(path), collapse = "\n"), "\n")
 }

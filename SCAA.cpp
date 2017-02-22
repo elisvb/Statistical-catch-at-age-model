@@ -10,7 +10,7 @@
 // Title: 	How catch underreporting can bias stock assessment and advice in northwest Atlantic mackerel 
 // 		and a possible resolution using censored catch
 //
-// © 2017 E. Van Beveren, D. Duplisea, M. Castonguay, T. Doniol-Valcroze, S. Plourde, N. Cadigan 	  
+// Â© 2017 E. Van Beveren, D. Duplisea, M. Castonguay, T. Doniol-Valcroze, S. Plourde, N. Cadigan 	  
 // All rights reserved.
 
 #include <TMB.hpp>
@@ -450,6 +450,8 @@ REPORT(logFy);
 REPORT(ssb);
 REPORT(RP);
 REPORT(CpredtotW);
+REPORT(F);
+REPORT(pe);
 
 return nll;
 }

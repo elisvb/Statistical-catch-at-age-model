@@ -36,7 +36,7 @@ insideout <-  function(ll) {
   lapply(ll, function(X) X[!sapply(X, is.null)])
 }
 
-retro=function(peels=7,file=file.,dat=dat.,para=para.,maps=maps.,rep=rep.,random=random.){
+retrospective=function(peels=7,file=file.,dat=dat.,para=para.,maps=maps.,rep=rep.,random=random.){
    to.cut.dat=c('y','logClower','logCupper','logCmean','crl','M','Weight','propMature','ys','S','WeightS','env1','env2')
    to.cut.para=c('logFy','logN')
    ny=length(dat$y) 

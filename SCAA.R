@@ -80,6 +80,8 @@ sdrep<-sdreport(obj,bias.correct=T)
 s=summary(sdrep, "fixed", p.value = TRUE);s=round(s,digits=2)
 s
 
+plotCheck(dat,rep)    
+    
 save(sdrep,file=paste0(file,"_sdrep.Rdata"))
 save(rep,file=paste0(file,"_rep.Rdata"))
 save(opt,file=paste0(file,"_opt.Rdata"))

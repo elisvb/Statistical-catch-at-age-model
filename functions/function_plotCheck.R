@@ -1,0 +1,17 @@
+plotCheck=function(data=data.,rep=rep.){ 
+  par(mfrow=c(3,3))
+  plot(dat$ys,dat$S/1000,main='Survey match',xlab="",ylab='SSB (t)')
+  lines(dat$ys,dat$S/1000,col='grey')
+  lines(dat$ys,rep$SpredW/1000,col='black')
+  plot(dat$y,rep$ssb/1000,type='l',main='SSB',ylim=c(0,max(dat$S/1000)),xlab="",ylab='SSB (t)')
+  lines(dat$ys,dat$S/1000,col='grey')
+  plot(dat$y,t(exp(rep$logN))[,1]/1000,type='l',main='Recruitment',xlab="",ylab="Number ('000)")
+  plot(dat$y,exp(dat$logCupper)/1000,type='l',main='Catch',xlab="",col='grey',ylab="t")
+  lines(dat$y,exp(dat$logClower)/1000,col='grey')
+  lines(dat$y,rep$CpredtotW/1000,col='black')
+  plot(dat$y,exp(rep$logFy),type='l',main='Fy',xlab="",ylab="")
+  plot(dat$a,t(t(rep$F) / exp(rep$logFy))[,1],type='l',main='Fa',xlab="",ylab='')
+  image(dat$y, dat$a, t(rep$pe), col = heat.colors(9), xlab="years",ylab="ages",srt=45,main='PE') 
+  image(dat$y, dat$a, t(exp(rep$logN)), col = heat.colors(25), xlab="years",ylab="ages",srt=45,main='N')
+  image(dat$y, dat$a, t(rep$F), col = heat.colors(25), xlab="years",ylab="ages",srt=45,main='F')
+}

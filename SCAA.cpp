@@ -453,6 +453,7 @@ REPORT(CpredtotW);
 REPORT(F);
 REPORT(pe);
 REPORT(logFa);
+REPORT(SpredW);
 
 return nll;
 }

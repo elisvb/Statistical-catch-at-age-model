@@ -1,6 +1,6 @@
-# Statistical catch-at-age model
+# Censored Catch Assessment Model
 
-This is a stock assessment model that includes two methods to model catch:
+This is a Statistical catch-at-age stock assessment model that includes two methods to model catch:
   - uncensored (catch is modelled with an observation error)
   - censored (catch is estimated to be between an upper and lower limit)
  

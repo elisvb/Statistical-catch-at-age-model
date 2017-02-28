@@ -1,4 +1,5 @@
-// Statistical catch-at-age model with (un)censored catch
+// Censored Catch Assessment model
+//  a Statistical catch-at-age model with (un)censored catch
 // Authors:
 // 		*Elisabeth Van Beveren <Elisabeth.vanBeveren@dfo-mpo.gc.ca>
 // 		*Daniel Duplisea

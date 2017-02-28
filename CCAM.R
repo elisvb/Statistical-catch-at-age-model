@@ -12,12 +12,12 @@ sourceDir <- function(path, trace = TRUE, ...) {
 sourceDir(wd)
 
 ##### COMPILE MODEL #####
-file="SCAA" 
+file="CCAM" 
 compile(paste0(file,'.cpp')) 
 dyn.load(dynlib(paste0(file)))
 
 ## DATA
-dat=TMBdat(dat="SCAA_data.dat")
+dat=TMBdat(dat="CCAM_data.dat")
 dat$crl=crlTransform(dat$crl)
 
 ## INITIAL VALUES

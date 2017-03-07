@@ -22,5 +22,6 @@ plotSSBref=function(data=dat.,rep=rep.){
     geom_hline(yintercept=SSB.F30/1000,linetype='dotted')+geom_text(x=max(ssb$year),y=SSB.F30/1000,label=paste0('SSB.F30 = ',round(SSB.F30/1000,0)),hjust=3,vjust=-0.1)+
     geom_hline(yintercept=SSB.F40/1000,linetype='dotted')+geom_text(x=max(ssb$year),y=SSB.F40/1000,label=paste0('SSB.F40 = ',round(SSB.F40/1000,0)),hjust=3,vjust=-0.1)+
     ylab("SSB")+xlab('Year')
-  print(a)
+  
+  return(a)
 }

@@ -16,5 +16,6 @@ plotSPR=function(data=dat.,rep=rep.){
     geom_text(aes(x=spr30*1.05,y=yend.spr30*1.05,label=paste("F30% =",round(spr30,2))),hjust=0,vjust=1)+
     geom_text(aes(x=spr40*1.05,y=yend.spr40*1.05,label=paste("F40% =",round(spr40,2))),hjust=0,vjust=1)+
     scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(expand = c(0, 0))
-  print(a)
+  
+  return(a)
 }

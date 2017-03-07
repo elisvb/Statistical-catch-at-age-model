@@ -11,5 +11,6 @@ plotMED=function(data=dat.,rep=rep.){
     geom_text(aes(x=min(SR$ssb)*1.4,y=max(SR$recruit)*0.9,label=paste("Fhigh =",round(Fhigh,2))),hjust=0)+
     geom_text(aes(x=min(SR$ssb)*1.4,y=max(SR$recruit)*0.8,label=paste("Fmed =",round(Fmed,2))),hjust=0)+
     geom_text(aes(x=min(SR$ssb)*1.4,y=max(SR$recruit)*0.7,label=paste("Flow =",round(Flow,2))),hjust=0)
-  print(a)
+  
+  return(a)
 }

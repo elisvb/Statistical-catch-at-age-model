@@ -22,5 +22,5 @@ plotKOBE=function(data=dat.,rep=rep.){
     scale_y_continuous(breaks=1:limit,labels=c(1:(limit-1),paste0('>',limit)))+
     scale_x_continuous(breaks=1:limit,labels=c(1:(limit-1),paste0('>',limit)))
   
-  print(a)
+  return(a)
 }

@@ -24,5 +24,5 @@ if(Fmax>max(data$f)){
   a=a+geom_segment(aes(x=Fmax, y = 0, xend = Fmax, yend = yend.max), linetype = "dotted")+
     geom_text(aes(x=Fmax*1.1,y=yend.max*0.9,label=paste("Fmax =",round(Fmax,2))),vjust=0,hjust=0)
 }
-print(a)
+return(a)
 }

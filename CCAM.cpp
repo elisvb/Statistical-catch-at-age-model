@@ -455,6 +455,8 @@ REPORT(F);
 REPORT(pe);
 REPORT(logFa);
 REPORT(SpredW);
+REPORT(ypr);
+REPORT(spr);
 
 return nll;
 }

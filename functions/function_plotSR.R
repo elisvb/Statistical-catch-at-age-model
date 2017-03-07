@@ -32,5 +32,6 @@ plotSR=function(data=dat.,rep=rep.,opt=opt.){
     geom_text(x=0, y = max(SR$recruit)*0.9,label=paste('Fcol =',round(Fcol,2)),hjust=-0.1,vjust=0)+
     geom_segment(aes(x=0, y = 0, xend = max(SR$ssb.shift)*0.7, yend = max(SR$ssb.shift)*0.7/sprF0), linetype = "dotted")+
     geom_text(x=max(SR$ssb.shift)*0.7, y = max(SR$ssb.shift)*0.7/sprF0,label=paste('sprF0 =',round(sprF0,2)),hjust=-0.1,vjust=1)
-  print(a)
+  
+  return(a)
 }

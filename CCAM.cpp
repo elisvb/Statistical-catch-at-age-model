@@ -7,7 +7,7 @@
 // 		*Thomas Doniol-Valcroze
 // 		*Stephane Plourde
 // 		*Noel Cadigan
-// Journal: 	ICES Journal of Marine Science (submitted)
+// Journal:  (submitted)
 // Title: 	How catch underreporting can bias stock assessment and advice in northwest Atlantic mackerel 
 // 		and a possible resolution using censored catch
 //

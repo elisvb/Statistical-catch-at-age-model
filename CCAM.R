@@ -22,7 +22,7 @@ dat$crl=crlTransform(dat$crl)
 
 ## INITIAL VALUES
 para=list(
-  logN=matrix(10,ncol=46,nrow=10),
+  logN=matrix(10,ncol=length(dat$y),nrow=10),
   logFa=c(-2, 0, 0, 0,1,1,1,1,1,1), 
   logFy=rep(-2.5,length(dat$y)),
   logsd_logS=-0.69,

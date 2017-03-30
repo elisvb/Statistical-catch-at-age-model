@@ -168,10 +168,7 @@ for(j in 1:n_cast){
 #catches
 logCpred_cast=empty_cast
 cols=(length(dat$y)+1):(length(dat$y)+n_cast)
-logF=F_cast
-logF[logF==0]=1
-logF=log(logF)
-logCpred_cast[,1:n_cast]=logF[,cols]-log(ZZ_cast[,cols])+log(1-exp(-ZZ_cast[,cols]))+logN_cast[,cols]
+logCpred_cast[,1:n_cast]=log(F_cast)[,cols]-log(ZZ_cast[,cols])+log(1-exp(-ZZ_cast[,cols]))+logN_cast[,cols]
 expCpred_cast=exp(logCpred_cast)*Weight_cast[,1:n_cast]
 Cpred_cast=c(rep$CpredtotW,colSums(expCpred_cast))
 

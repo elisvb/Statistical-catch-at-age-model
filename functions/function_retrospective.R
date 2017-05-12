@@ -9,71 +9,42 @@
 #           4) mohn's rho 
 ############################################################################################################################################
 
-require(ggplot2)
-require(plyr)
-
-clean=function(x,ny,y,peels){
-  x=as.data.frame(x)
-  if(ncol(x)==ny){
-    colnames(x)=dat$y
-    x$age=rep(dat$a,peels)
-    x$peel=rep(1:peels,each=max(dat$a))
-    x=melt(x,id=c('age','peel'),variable.name='year')
-    x$year=as.numeric(as.character(x$year))
-    return(x)
-    }else{
-    colnames(x)="value"
-    x$year=y
-    x$peel=rep(1:peels,times=c(length(dat$y):(length(dat$y)-peels+1)))
-    return(x)
-  }
-}
-
-insideout <-  function(ll) {
-  nms <- unique(unlist(lapply(ll, function(X) names(X))))
-  ll <- lapply(ll, function(X) setNames(X[nms], nms))
-  ll <- apply(do.call(rbind, ll), 2, as.list)
-  lapply(ll, function(X) X[!sapply(X, is.null)])
-}
-
-retrospective=function(peels=7,file=file.,dat=dat.,para=para.,maps=maps.,rep=rep.,random=random.){
+retro=function(peels=7,file=file.,data=dat.,para=para.,maps=maps.,rep=rep.,random=random.){
+   require(ggplot2)
+   require(plyr)
+  
    to.cut.dat=c('y','logClower','logCupper','logCmean','crl','M','Weight','propMature','ys','S','WeightS','env1','env2')
    to.cut.para=c('logFy','logN')
-   ny=length(dat$y) 
-   
-   ret.list=list()
-   ret.list[[1]]=rep
-   
-   dats=dat
-   y=dat$y
+
+   ns = c("ssb","F")
+   ret = array(NA, dim=c(peels,length(ns),length(data$y)),dimnames=list(1:peels,ns,data$y))
+   ret[1,'ssb',]=rep$ssb
+   ret[1,'F',]=colMeans(rep$'F')
+
   for(s in 2:peels){
-    dats[to.cut.dat]=lapply(dats[to.cut.dat],function(x) shorten(x))
+    data[to.cut.dat]=lapply(data[to.cut.dat],function(x) shorten(x))
     para[to.cut.para]=lapply(para[to.cut.para],function(x) shorten(x))
-    obj <- MakeADFun(dats,para,random=random,DLL=file,map=maps)  
+    obj <- MakeADFun(data,para,random=random,DLL=file,map=maps)  
     opt<-nlminb(obj$par,obj$fn,obj$gr,control=list(iter.max=1000,eval.max=1000))
-    ret.list[[s]]=obj$rep()
-    y=c(y,dats$y)
+    reps=obj$rep()
+    ret[s,'ssb',]=c(reps$ssb,rep(NA,s-1))
+    ret[s,'F',]=c(colMeans(reps$'F'),rep(NA,s-1))
   }
-    ret=insideout(ret.list)
-    ret=ret[(c('F','ssb'))]
-    ret=lapply(ret, function(x) do.call('rbind.fill.matrix', x))
-    ret=lapply(ret,clean,ny=ny,y=y,peels=peels)
-    
-    list2env(ret,envir=.GlobalEnv)
+   ret=as.data.frame.table(ret)
+   names(ret)=c('peel','variable','year','value')
 
      ##plots
-    ages=paste(min(dat$a),max(dat$a),sep="-")
-    Fbar=ddply(F,c('year','peel'),summarise,value=mean(value))
+    ages=paste(min(data$a),max(data$a),sep="-")
 
-    p1=ggplot(ssb,aes(x=year,y=value/1000,group=peel))+geom_line()+
-        xlab("Year")+ylab("SSB (t)")
-    p2=ggplot(Fbar,aes(x=year,y=value,group=peel))+geom_line()+
+    p1=ggplot(ret[ret$variable=='ssb',],aes(x=year,y=value/1000000,group=peel))+geom_line()+
+        xlab("Year")+ylab("SSB ('000 t)")
+    p2=ggplot(ret[ret$variable=='F',],aes(x=year,y=value,group=peel))+geom_line()+
         xlab("Year")+ylab(expression(bar("F")[ages]))
 
     ## calculate Mohn's Rho
-    ssbc=dcast(data=ssb,year~peel)
+    ssbc=dcast(data=ret[ret$variable=='ssb',],year~peel)
     ssbv=vector()
-    Fbarc=dcast(data=Fbar,year~peel)
+    Fbarc=dcast(data=ret[ret$variable=='F',],year~peel)
     Fbarv=vector()
       for(i in 2:peels){
         ro=i+1
@@ -81,10 +52,14 @@ retrospective=function(peels=7,file=file.,dat=dat.,para=para.,maps=maps.,rep=rep
         Fbarv[i-1]=(tail(Fbarc,i)[1,i]-tail(Fbarc,i)[1,ro])/tail(Fbarc,i)[1,i]
       }
     mohn=data.frame(ssb=sum(ssbv),Fbar=sum(Fbarv))
+    mohnmean=data.frame(ssb=mean(ssbv),Fbar=mean(Fbarv))
     
     ## all in list
-    final=list(ret,p1,p1,mohn)
+    final=list(ret=ret,p1=p1,p2=p2,mohn=mohn,mohnmean=mohnmean)
     return(final)
 }
+
+
+
 
 

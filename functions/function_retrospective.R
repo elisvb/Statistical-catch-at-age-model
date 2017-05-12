@@ -9,7 +9,7 @@
 #           4) mohn's rho 
 ############################################################################################################################################
 
-retro=function(peels=7,file=file.,data=dat.,para=para.,maps=maps.,rep=rep.,random=random.){
+retro=function(peels=7,file,data,para,rep,random=NA,map=NA){
    require(ggplot2)
    require(plyr)
   
@@ -24,7 +24,7 @@ retro=function(peels=7,file=file.,data=dat.,para=para.,maps=maps.,rep=rep.,rando
   for(s in 2:peels){
     data[to.cut.dat]=lapply(data[to.cut.dat],function(x) shorten(x))
     para[to.cut.para]=lapply(para[to.cut.para],function(x) shorten(x))
-    obj <- MakeADFun(data,para,random=random,DLL=file,map=maps)  
+    obj <- MakeADFun(data,para,random=random,DLL=file,map=map)  
     opt<-nlminb(obj$par,obj$fn,obj$gr,control=list(iter.max=1000,eval.max=1000))
     reps=obj$rep()
     ret[s,'ssb',]=c(reps$ssb,rep(NA,s-1))

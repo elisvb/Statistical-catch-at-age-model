@@ -28,16 +28,16 @@ DATA_VECTOR(a); 		// vector with ages
 DATA_VECTOR(logClower);		// lower boundary of catches in kg
 DATA_VECTOR(logCmean);		// average catches in kg (lower+upper)/2
 DATA_VECTOR(logCupper);  	// upper boundary of catches in kg
-DATA_MATRIX(crl);		// continous-ratio logit catch composition
-DATA_MATRIX(M);			// natural mortality by age and year
-DATA_MATRIX(Weight);		// weight by age and year
-DATA_MATRIX(propMature);	// proportion mature by age and year
+DATA_ARRAY(crl);		// continous-ratio logit catch composition
+DATA_ARRAY(M);			// natural mortality by age and year
+DATA_ARRAY(Weight);		// weight by age and year
+DATA_ARRAY(propMature);	// proportion mature by age and year
 
 DATA_VECTOR(ys);		// years of the survey (continuous)
 DATA_VECTOR(as);		// ages of survey (ages summed to obtain the annual index)
 DATA_SCALAR(Stime);		// proportion of year
 DATA_VECTOR(S); 		// survey SSB values (kg)  (negative values if NA)
-DATA_MATRIX(WeightS);		// weight by age and year, at index time (Stime)
+DATA_ARRAY(WeightS);		// weight by age and year, at index time (Stime)
 
 DATA_VECTOR(env1);		// environmental factor 1 (zeros if not used)
 DATA_VECTOR(env2);		// environmental factor 2 (zeros if not used)
@@ -83,34 +83,34 @@ int nas = as.size();
 //- mortality
 vector<Type> Fy=exp(logFy);  
 vector<Type> Fa=exp(logFa);
-matrix<Type> F(na,ny);		
-matrix<Type> ZZ(na,ny);	
+array<Type> F(na,ny);		
+array<Type> ZZ(na,ny);	
 
 //- Numbers and masses
-matrix<Type> N(na,ny); 
+array<Type> N(na,ny); 
 vector<Type> ssb(ny);
 vector<Type> tsb(ny);
 
 //- Catches
-matrix<Type> logCpred(na,ny);
-matrix<Type> Cpred(na,ny);
-matrix<Type> CpredW(na,ny);
+array<Type> logCpred(na,ny);
+array<Type> Cpred(na,ny);
+array<Type> CpredW(na,ny);
 vector<Type> logCpredtot(ny);
 vector<Type> logCpredtotW(ny);
 vector<Type> Cpredtot(ny);
 vector<Type> CpredtotW(ny);
-matrix<Type> propCpred(na,ny);
-matrix<Type> propCpred_cond(na-1,ny);
-matrix<Type> pred_crl(na-1,ny);
+array<Type> propCpred(na,ny);
+array<Type> propCpred_cond(na-1,ny);
+array<Type> pred_crl(na-1,ny);
 
 //- Residuals
 vector<Type> RESstd_rec(ny);
 vector<Type> RESraw_rec(ny);
 vector<Type> RESraw_Spred(nys);
 vector<Type> RESstd_Spred(nys);
-matrix<Type> RESstd_crl(na-1,ny);
+array<Type> RESstd_crl(na-1,ny);
 vector<Type> RESstd_Cobs(ny);
-matrix<Type> RESraw_crl(na-1,ny);
+array<Type> RESraw_crl(na-1,ny);
 vector<Type> RESraw_Cobs(ny);
 
 //- other
@@ -278,9 +278,9 @@ for(int j = 0 ;j <ny; j++){
 }   
 
 //------- Estimate Survey SSB---------------
-matrix<Type> logSpredN(nas,nys);
+array<Type> logSpredN(nas,nys);
 vector<Type> SpredW(nys);
-matrix<Type> propMatureS=propMature.block(na-nas,ny-nys,nas,nys); 
+array<Type> propMatureS=propMature.matrix().block(na-nas,ny-nys,nas,nys); 
 
 for(int j = 0 ; j < nys; j++){
  SpredW(j)=0.0; 

@@ -66,7 +66,7 @@ opt1
 rep=obj$rep()
 
 ## STATE 2: censored-----
-para.new=updateParameters(opt=opt1,rep=rep,para.old=para,random=random,map=maps)
+para.new=obj$env$parList(opt1$par)
 dat[c("state")]=2
 
 obj <- MakeADFun(dat,para.new,random=random,DLL=file,map=maps)  

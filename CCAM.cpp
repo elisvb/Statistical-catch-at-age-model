@@ -46,7 +46,7 @@ DATA_INTEGER(state);		// 1: uncensored: fit to logCmean, 2: censored model
 DATA_INTEGER(rec);		// recruitment options
 DATA_INTEGER(recDist);		// recruitment error distribution: 0: (log)normal, 1:t , 2: robuust (mixture), 3: robuust + (mixture)
 
-DATA_INTEGER(logsd_logC);	// standard deviation catches
+DATA_SCALAR(logsd_logC);	// standard deviation catches
 
 DATA_VECTOR(f); 		// vector of mortalities
 

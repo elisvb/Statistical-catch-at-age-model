@@ -24,7 +24,7 @@ Requires:
 # References
 
 This code is part of:
-- Van Beveren, E., Duplisea,D., Castonguay,C., Doniol-Valcroze,T., Plourde, S., Cadigan, N., (submitted), How catch underreporting can bias stock assessment of and advice for northwest Atlantic mackerel and a possible resolution using censored catch
+- Van Beveren, E., Duplisea,D., Castonguay,C., Doniol-Valcroze,T., Plourde, S., Cadigan, N., (2017), How catch underreporting can bias stock assessment of and advice for northwest Atlantic mackerel and a possible resolution using censored catch.  Fish. Res.
 
 The censored catch, structured process error and crl transformed catch-at-age cpp code chunks are from:
 

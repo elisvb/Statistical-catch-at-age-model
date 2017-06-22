@@ -8,7 +8,7 @@
 // 		*Stephane Plourde
 // 		*Noel Cadigan
 // Journal:  Fisheries Research
-// Title: 	How catch underreporting can bias stock assessment and advice in northwest Atlantic mackerel 
+// Title: 	How catch underreporting can bias stock assessment of and advice for northwest Atlantic mackerel 
 // 		and a possible resolution using censored catch
 //
 // © 2017 E. Van Beveren, D. Duplisea, M. Castonguay, T. Doniol-Valcroze, S. Plourde, N. Cadigan 	  

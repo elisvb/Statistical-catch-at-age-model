@@ -13,7 +13,9 @@ Other characteristics are:
 - annual SSB index
 - estimation of several common reference points (Fmsy, SSBmsy, F20-30-40%, F01, Fmed, Fmax, Fcol)
  
-Details can be found in Van Beveren et al. (submitted)
+Details can be found in:
+
+Van Beveren, E., Castonguay, M., Doniol-Valcroze, T., Cadigan, N., Plourde, S., Duplisea, D. (2017). How catch underreporting can bias stock assessment and advice in northwest Atlantic mackerel and a possible resolution using censored catch. Fish. Res. http://dx.doi.org/10.1016/j.fishres.2017.05.015 
  
 # Usage
 

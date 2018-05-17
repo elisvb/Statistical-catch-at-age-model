@@ -1,3 +1,6 @@
+!!!! DEPRICATED !!!!!
+see elisvb/CCAM
+
 # Censored Catch Assessment Model
 
 This is a Statistical catch-at-age stock assessment model that includes two methods to model catch:
